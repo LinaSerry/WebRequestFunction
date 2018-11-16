@@ -12,7 +12,7 @@ In order to run locally fill in the following values in the local.settings.json 
     "BlobStorageContainerName": "",
     "BlobStorageBlobName": "",
     "StorageAccount":"",
-    "TranslinkToken":"",
+    "BearerToken":"",
     "ApiUrl" : "",
     "Endpoint" :"" 
 
