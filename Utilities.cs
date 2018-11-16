@@ -1,6 +1,6 @@
 using System;
 
-namespace TransLink
+namespace PollingWebRequest
 {
     public static class Utilities
     {

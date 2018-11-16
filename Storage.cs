@@ -1,13 +1,14 @@
-namespace TransLink
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Newtonsoft.Json;
+using PollingWebRequest.Classes;
+
+namespace PollingWebRequest
 {
-    using System;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Newtonsoft.Json;
-    using TransLink.Classes;
     
     public class StorageHelper
     {
@@ -35,7 +36,7 @@ namespace TransLink
         }
 
         /// <Summary>
-        /// Gets a tweets list from the tweets.json blob in the container 'Tweets'
+        /// Gets a alert list from the alerts.json blob in the container 'Alerts'
         /// </Summary>
         internal async Task<List<Alert>> GetListOfAlertsAsync()
         {
@@ -45,7 +46,7 @@ namespace TransLink
         }
 
         /// <Summary>
-        /// Uploads an update of the blob tweets.json in the container 'Tweets'
+        /// Uploads an update of the blob alerts.json in the container 'Alerts'
         /// </Summary>
         internal async void UpdateBlobAsync(string jsonFile)
         {

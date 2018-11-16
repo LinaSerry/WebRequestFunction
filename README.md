@@ -1,7 +1,7 @@
 # WebRequestFunction
 Azure Function triggered every 5 minutes to check against Translink's service disruption API and broadcast alerts using Flow
 In order to run locally fill in the following values in the local.settings.json file 
-
+'
 {
     "IsEncrypted": false,
     "Values": {
@@ -12,9 +12,10 @@ In order to run locally fill in the following values in the local.settings.json 
     "BlobStorageContainerName": "",
     "BlobStorageBlobName": "",
     "StorageAccount":"",
-    "TranslinkToken":"",
+    "BearerToken":"",
     "ApiUrl" : "",
     "Endpoint" :"" 
 
     }
 }
+'
