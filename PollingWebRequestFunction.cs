@@ -33,13 +33,14 @@ namespace PollingWebRequest
 
             var requestBody = await result.Content.ReadAsStringAsync();
             var alerts = JsonConvert.DeserializeObject<List<Alert>>(requestBody);
+            log.LogInformation($"Initial GET request complete. "+alerts.Count+" alerts found.");
 
             try
             {
 
-                log.LogInformation($"Updating and looking for duplicated alerts list in Storage");
+                log.LogInformation($"Updating and looking for duplicated alerts list in Storage.");
                 alerts = CheckDuplicatesInStorage(alerts);
-                log.LogInformation($"Duplicate check completed. "+alerts.Count+" duplicates found");
+                log.LogInformation($"Duplicate check completed. "+alerts.Count+" new alerts identified.");
 
                 if (alerts.Count > 0)
                 {
