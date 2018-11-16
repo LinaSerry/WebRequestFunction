@@ -42,7 +42,14 @@ namespace PollingWebRequest
         {
             var latestBlockBlob =  cloudBlobContainer.GetBlockBlobReference(storageBlobName);
             string jsonString = await latestBlockBlob.DownloadTextAsync();
-            return JsonConvert.DeserializeObject<List<Alert>>(jsonString);
+            if (String.IsNullOrEmpty(jsonString))
+            {
+                return new List<Alert>();
+            }
+            else
+            {
+                return JsonConvert.DeserializeObject<List<Alert>>(jsonString);
+            }
         }
 
         /// <Summary>

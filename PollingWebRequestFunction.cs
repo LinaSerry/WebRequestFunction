@@ -39,7 +39,7 @@ namespace PollingWebRequest
 
                 log.LogInformation($"Updating and looking for duplicated alerts list in Storage");
                 alerts = CheckDuplicatesInStorage(alerts);
-                log.LogInformation($"Duplicate check completed");
+                log.LogInformation($"Duplicate check completed. "+alerts.Count+" duplicates found");
 
                 if (alerts.Count > 0)
                 {
@@ -51,7 +51,7 @@ namespace PollingWebRequest
                     byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                     var trigger = await c.PostAsync(endpoint, byteContent);
                     Console.WriteLine(JsonConvert.SerializeObject(alerts));
-                    log.LogInformation($"Alerts sent");
+                    log.LogInformation($"Alerts sent!");
                 }
             }
             catch (Exception e)
