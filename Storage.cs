@@ -32,6 +32,8 @@ namespace PollingWebRequest
             {
                 var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
                 cloudBlobContainer = cloudBlobClient.GetContainerReference(storageContainerName);
+                // Async?
+                var result = cloudBlobContainer.CreateIfNotExistsAsync().Result;
             }
         }
 

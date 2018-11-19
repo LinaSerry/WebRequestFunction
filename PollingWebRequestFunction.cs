@@ -23,7 +23,7 @@ namespace PollingWebRequest
         {
             storageHelper.InitializeStorageAccount();
 
-            var apiUrl = Utilities.GetEnvironmentVariable("ApiUrl");
+            var apiUrl = Utilities.GetEnvironmentVariable("PollUrl");
 
             HttpClient Client = new HttpClient();
 
@@ -44,7 +44,7 @@ namespace PollingWebRequest
 
                 if (alerts.Count > 0)
                 {
-                    var endpoint = Utilities.GetEnvironmentVariable("Endpoint");
+                    var endpoint = Utilities.GetEnvironmentVariable("PostUrl");
                     HttpClient c = new HttpClient();
                     var myContent = JsonConvert.SerializeObject(alerts);
                     var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
