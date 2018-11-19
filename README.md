@@ -1,10 +1,12 @@
 # WebRequestFunction
 
-This is code for an Azure Function that is triggered every 5 minutes to get from an API, check for duplicated records it has already seen and POST any new alerts to another API.
+This is code for an [Azure Function](https://azure.microsoft.com/en-us/services/functions/) that is triggered every 5 minutes to do a GET from an API, check for duplicated records in [Azure blob storage](https://docs.microsoft.com/en-us/azure/storage/) it has already seen and POST any new alerts to another API.
 
-This code was written specifically to poll the Translink API for Alerts and broadcast them to Microsoft Flow, but could be adapted to poll many APIs and broadcast updates. 
+This code was written specifically to poll the [Translink API](https://developer.translink.ca/) for Alerts and broadcast them to a [Microsoft Flow](https://flow.microsoft.com/en-us/) endpoint which in turn sends notifications via [Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software) and SMS, but could be adapted to poll many APIs and broadcast updates. 
 
 To make this work for any other API change the Classes.cs file to match the response from the API you would like to poll. 
+
+* Note: If you don't need to check for duplicates consider using a [Logic App](https://azure.microsoft.com/en-us/services/logic-apps/) or [Microsoft Flow](https://flow.microsoft.com/en-us/) instead
 
 ## Quick Deploy to Azure
 
