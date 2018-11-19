@@ -6,12 +6,12 @@ This code was written specifically to poll the Translink API for Alerts and broa
 
 To make this work for any other API change the Classes.cs file to match the response from the API you would like to poll. 
 
-## To run in Azure Fill in the app settings with the following values:
+### To run in Azure, run the ARM Template found in azuredeploy.json and then fill in the app settings with the following values:
 - BearerToken : the Auth token for the API you want to GET from
 - PollUrl : The URL of the API you want to get from
 - PostUrl : The URL of the API you want to POST to
 
-To run locally fill in the following values in the local.settings.json file 
+### To run locally open in VSCode and fill in the following values in the local.settings.json file 
 ```
 {
     "IsEncrypted": false,
