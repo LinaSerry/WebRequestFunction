@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Microsoft.Azure.WebJobs;
 
+// Use a json to C# generator to easily generate the required classes : https://jsonutils.com/
 namespace PollingWebRequest.Classes
 {
     public class Effect
