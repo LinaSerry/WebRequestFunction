@@ -23,7 +23,7 @@ namespace PollingWebRequest
         {
             storageHelper.InitializeStorageAccount();
 
-            var apiUrl = Utilities.GetEnvironmentVariable("ApiUrl");
+            var apiUrl = Utilities.GetEnvironmentVariable("PollUrl");
 
             HttpClient Client = new HttpClient();
 
@@ -33,17 +33,18 @@ namespace PollingWebRequest
 
             var requestBody = await result.Content.ReadAsStringAsync();
             var alerts = JsonConvert.DeserializeObject<List<Alert>>(requestBody);
+            log.LogInformation($"Initial GET request complete. "+alerts.Count+" alerts found.");
 
             try
             {
 
-                log.LogInformation($"Updating and looking for duplicated alerts list in Storage");
+                log.LogInformation($"Updating and looking for duplicated alerts list in Storage.");
                 alerts = CheckDuplicatesInStorage(alerts);
-                log.LogInformation($"Duplicate check completed");
+                log.LogInformation($"Duplicate check completed. "+alerts.Count+" new alerts identified.");
 
                 if (alerts.Count > 0)
                 {
-                    var endpoint = Utilities.GetEnvironmentVariable("Endpoint");
+                    var endpoint = Utilities.GetEnvironmentVariable("PostUrl");
                     HttpClient c = new HttpClient();
                     var myContent = JsonConvert.SerializeObject(alerts);
                     var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
@@ -51,7 +52,7 @@ namespace PollingWebRequest
                     byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                     var trigger = await c.PostAsync(endpoint, byteContent);
                     Console.WriteLine(JsonConvert.SerializeObject(alerts));
-                    log.LogInformation($"Alerts sent");
+                    log.LogInformation($"Alerts sent!");
                 }
             }
             catch (Exception e)
