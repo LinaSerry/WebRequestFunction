@@ -12,7 +12,7 @@
     "variables": {
         "functionAppName": "[parameters('appName')]",
         "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
-        "repoURL": "https://github.com/nastassiar/WebRequestFunction.git",
+        "repoURL": "https://github.com/LinaSerry/WebRequestFunction.git",
         "branch": "master",
         "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
