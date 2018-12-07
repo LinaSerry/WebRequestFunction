@@ -120,19 +120,19 @@
                         },
                         {
                             "name": "BlobStorageContainerName",
-                            "value": "alertcontainer"
-                        },
-                        {
-                            "name": "PollUrl",
-                            "value": ""
-                        },
-                        {
-                            "name": "PostUrl",
-                            "value": ""
+                            "value": "[parameters('BlobStorageContainerName')]"
                         },
                         {
                             "name":"BlobStorageConnectionString",
                             "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                        },
+                        {
+                            "name": "PollUrl",
+                            "value": "[parameters('PollUrl')]"
+                        },
+                        {
+                            "name": "PostUrl",
+                            "value": "[parameters('PostUrl')]"
                         }
                     ]
                 }
