@@ -7,7 +7,25 @@
             "metadata": {
                 "description": "The name of the function app that you wish to create."
             }
-        }
+        },
+        "BlobStorageContainerName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the Blob container you will be using."
+            }
+        },
+        "PollUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "."
+            }
+        },
+        "PostUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the Blob container you will be using."
+            }
+        },
     },
     "variables": {
         "functionAppName": "[parameters('appName')]",
