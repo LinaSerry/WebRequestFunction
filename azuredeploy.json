@@ -17,16 +17,25 @@
         "PollUrl": {
             "type": "string",
             "metadata": {
-                "description": "."
+                "description": "The URL of the API you want to get from."
             }
         },
+        "BearerToken": {
+            "type": "string",
+            "metadata": {
+                "description": "The Auth token for the API you want to GET from."
+            }
+        },
+        
         "PostUrl": {
             "type": "string",
             "metadata": {
-                "description": "The name of the Blob container you will be using."
+                "description": "The URL of the API you want to POST to."
             }
         },
+        
     },
+ 
     "variables": {
         "functionAppName": "[parameters('appName')]",
         "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
